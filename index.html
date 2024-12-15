@@ -1,442 +1,58 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
+    <head>
+        <meta lang="vi-VN">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=devices=width, initial-scale=1.0">
+        <title>Kirara and me</title>
+        <link rel="icon" href="./src/img/kr.jpg" type="image/icon">
+        <link rel="stylesheet" href="./style.css" type="text/css">
+    </head>
+    <body>
+        <div id="loading">
+            <img src="./src/img/loading.png">
+        </div>
+        <div id="main">
+            <nav>
+                <div id="ngt">
+                    <div class="navdiv">
+                        <div class="logo">
+                            <a href="http://127.0.0.1:3000/web3/main/index.html"><img src="./src/img/kr4.jpg" style="width:50px; height: 50px;"></a>
+                        </div>
+                        <ul>
+                            <li><a href="./about/index.html">Cá nhân</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                    <div class="chitiet">
+                        <div class="kr">
+                            <menu><img id="krpng" src="./src/img/kirara.png"></menu>
+                        </div>
+                        <ul id="mc">
+                            <li style="height:30px; width:60px;"><a href="#">Gallery</a></li>
+                            <li style="height:30px; width:60px;"><a href="#">Games</a></li>
+                            <li style="height:30px; width:60px;"><a href="#">Ticket</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="main">
+                <div class="me">
+                    <img src="./src/img/me.png">
+                    <ul id="me">Qayrermc
+                        <div id="Qayrermc">
+                            <li>Rn: Phan Văn Thành đạt</li>
+                            <li>Birth: 06/12/20xx</li>
+                            <li>Gender: Nam</li>
+                            <li>Miêu tả: Lười</li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="kirara"></div>
+                <div class="nguoibian"></div>
+            </div>
+        </div>
+        <script src="./script.js">  </script>
+    </body>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Nghệ Thuật Bài Chòi ở Quảng Nam Việt Nam</title>
-   <style>
-    body {
-      font-family: "Times New Roman", serif;
-      font-size: 20px;
-      overflow: hidden;
-      margin: 0;
-      background-image: url("https://didongviet.vn/dchannel/wp-content/uploads/2022/12/hinh-nen-powerpoint-tet-didongviet-27.jpg");
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .slide {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-      display: flex;
-      align-items: center;
-      /* ... các thuộc tính CSS khác ... */
-      transform: translateX(100%);
-      transition: opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .slide img {
-      max-width: 80%;
-      height: auto;
-      margin-top: 20px;
-      transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column; /* Sắp xếp các phần tử con theo cột */
-    }
-
-    .slide img:hover {
-      transform: scale(1.02);
-    }
-    
-    .slide h1 { /* Áp dụng cho tất cả <h1> trong .slide */
-      order: -1; /* Đặt h1 lên trên */
-      text-align: center;
-      font-size: 45px;
-      align-self: center; /* Căn giữa tiêu đề */
- 
-    }
-    
-    .slide h2 {
-      text-align: center;
-      font-size: 2em;
-    }
-    .slide li {
-      text-align: center;
-      font-size: 28px;
-    }
-
-    .slide.active {
-      display: flex;
-      opacity: 1;
-      transform:translateX(0);
-    }
-
-    h1,
-    h2,
-    h3,
-    p,
-    ul {
-      color: white;
-      text-shadow: 2px 2px 4px black;
-      padding: 20px;
-    }
-
-    .text-container {
-      width: 50%;
-      text-align: left;
-      display: flex;
-    }
-
-    .slide.active h1 {
-      order: -1;
-      text-align: center;
-      font-size: 3em;
-      
-    }
-
-    .slide.active h2 {
-      font-size: 1.5em;
-    }
-
-    .slide.active .text-container {
-      width: 50%;
-      text-align: left;
-      display: flex;
-      flex-direction: column; /* Xếp các phần tử con theo chiều dọc */
-      align-items: center;
-    }
-
-     .slide.active img {
-       order: 1;  /* Đặt ảnh xuống dưới */
-       max-width: 100%; 
-       margin-top: 20px; 
-       display: block; /* Thêm thuộc tính này */
-       margin-left: auto; /* Thêm thuộc tính này */
-       margin-right: auto; /* Thêm thuộc tính này */
-    }
-
-
-    @keyframes slideIn {
-      from {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    .slide {
-      animation: slideIn 0.5s ease-in-out;
-    }
-  
-    .thankYou {
-      display: flex; 
-      position: fixed; /* Giữ cố định vị trí trên màn hình */
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.0); /* Nền mờ */
-      z-index: 100; /* Đảm bảo hiển thị trên cùng */
-      flex-direction: column; /* Sắp xếp các phần tử con theo cột */
-      align-items: center; /* Căn giữa theo chiều ngang */
-      justify-content: center; /* Căn giữa theo chiều dọc */
-    }
-
-    .thankYou h1 {
-      font-size: 50px; 
-      color: white;
-      margin-bottom: 80px; /* Khoảng cách với nội dung bên dưới */
-      top: 110%;
-    }
-
-
-    @keyframes scrollUp {
-      from {
-        transform: translateY(3000%);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(-100%);
-        opacity: 1;
-      }
-    }
-    .thankYou p {
-      animation: scrollUp 15s linear ;
-      position: relative; /* Đảm bảo thẻ p được định vị tương đối */
-      animation-fill-mode: forwards;
-       /* Ban đầu ẩn chữ */
-      animation-delay: 2s;
-      opacity: 0;
-      font-size: 20px;
-    }
-    .slide li1 {
-      text-align: center;
-      font-size: 28px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="slide active">
-    <div class="text-container">
-      <h1>Nghệ Thuật Bài Chòi ở Quảng Nam Việt Nam</h1>
-      <h2>Một Hành Trình Qua Truyền Thống và Văn Hóa</h2>
-    </div>
-    <img src="https://bqn.1cdn.vn/2022/11/07/images.baoquangnam.vn-storage-newsportal-2022-11-6-134448-_tit-chinh_lot-trong-.png"
-      alt="Người dân chơi bài chòi" style="width: 875px; height: 570px;">
-  </div>
-
- <div class="slide">
-   <style>
-         .slide h3 { /* Áp dụng cho tất cả <h1> trong .slide */
-      order: -1; /* Đặt h1 lên trên */
-      text-align: center;
-      font-size: 45px;
-      align-self: center; /* Căn giữa tiêu đề */
-    }
-   </style>
-    <div class="text-container">
-      <h3>Giới Thiệu</h3>
-      <ul>
-        <li>Bài Chòi là một hình thức nghệ thuật truyền thống của Việt Nam kết hợp âm nhạc, thơ ca, diễn xuất, hội họa và
-          văn
-          học.</li>
-        <li>Được UNESCO công nhận là Di sản Văn hóa Phi vật thể của Nhân loại vào năm 2017.</li>
-        <li>Thường được tổ chức vào dịp Tết Nguyên Đán và các lễ hội lớn tại các tỉnh miền Trung như Quảng Nam, Hội An, Đà
-          Nẵng.</li>
-      </ul>
-    </div>
-    <img src="https://bqn.1cdn.vn/2022/11/07/images.baoquangnam.vn-storage-newsportal-2022-11-6-134448-_tit_phu_1.png" alt="Image 1" style="width: 720px; height: 480px;">
-  </div>
-  <div class="slide">
-    <div class="text-container">
-      <h3>Nguồn Gốc</h3>
-      <ul>
-        <li>Bài Chòi, một hình thức nghệ thuật truyền thống của Việt Nam, có nguồn gốc từ khu vực duyên hải miền Trung, đặc biệt phổ biến ở các tỉnh Quảng Nam, Đà Nẵng và Bình Định</li>
-        <li>Ban đầu, Bài Chòi được tổ chức như một hình thức giải trí trong dịp Tết Nguyên Đán và các lễ hội lớn. Người dân tập trung để tham gia và thưởng thức các màn trình diễn kết hợp giữa âm nhạc, thơ ca, diễn xuất và hội họa.
-        </li>
-      </ul>
-    </div>
-    <img src="https://bqn.1cdn.vn/2022/11/07/images.baoquangnam.vn-storage-newsportal-2022-11-6-134448-_chum-anh_bc_4.png" alt="Image 2" style="height: 510px; width: 599px;">
-  </div>  
-  <div class="slide">
-    <div class="text-container">
-      <h3>Thích Nghi Hiện Đại và Bảo Tồn</h3>
-      <ul>
-        <li>Các buổi biểu diễn hiện đại thường kết hợp các yếu tố truyền thống và đương đại để thu hút khán giả trẻ.</li>
-        <li>Nỗ lực từ các tổ chức văn hóa và chính quyền địa phương để bảo tồn và quảng bá Bài Chòi.</li>
-      </ul>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); margin: 10px;">
-    <img src="https://bqn.1cdn.vn/2022/11/07/images.baoquangnam.vn-storage-newsportal-2022-11-6-134448-_anh_bc7.png"
-      alt="Các nghệ sĩ biểu diễn bài chòi" style="width: 480px; height: 360px;">
-    <img src="https://cdn.tuyengiao.vn/uploads/2024/07/25/29/tap-huan-bai-choi-1721895316.png?q=75&f=6&s=gtnignvjekg" alt="img2" style="width: 480px; height: 360px;">
-    </div>
-  </div>
-
-  <div class="slide">
-    <div class="text-container">
-      <h3>Giá Trị Văn Hóa</h3>
-      <ul>
-        <li>Bài Chòi không chỉ là một trò chơi, mà còn mang trong mình giá trị văn hóa sâu sắc.</li>
-        <li>Đây là phương tiện để bảo tồn và truyền tải các câu chuyện dân gian, tục ngữ và dân ca địa phương.
-        </li>
-        <li>Bài Chòi giúp kết nối cộng đồng, tạo ra một không gian văn hóa chung, nơi mọi người có thể cùng nhau vui chơi và thưởng thức nghệ thuật.</li>
-      </ul>
-    </div>
-    <img src="https://ticotravel.com.vn/wp-content/uploads/2022/05/Bai_choi_Hoi_An_09.jpg" alt="Image 2">
-  </div>
-  
-   <div class="slide">
-    <div class="text-container">
-      <h3>Cách Chơi</h3>
-      <ul>
-        <li>Cách chơi Bài Chòi tương đối đơn giản nhưng rất hấp dẫn.</li>
-        <li>Các người chơi ngồi trong các chòi được dựng xung quanh một sân chơi. Người dẫn chương trình, được gọi là "Hiệu", sẽ hát các câu thơ hoặc bài hát.
-        </li>
-        <li>Mỗi người chơi sẽ có một bộ thẻ bài. Khi "Hiệu" hát đến tên thẻ bài mà người chơi đang giữ, người đó sẽ giơ thẻ lên và thắng cuộc. Mỗi thẻ bài đều có hình ảnh và tên riêng biệt, thường là các nhân vật dân gian hoặc biểu tượng văn hóa.</li>
-      </ul>
-    </div>
-    <img src="https://bqn.1cdn.vn/2022/11/07/images.baoquangnam.vn-storage-newsportal-2022-11-6-134448-_chum-anh_bc_123.png" alt="Image 3" style="width: 680px; height: 811;">
-    <img src="http://ubdkcgvn.org.vn/mfiles/data/2017/06/81E20BBF/1.jpg" alt="img2">
-  </div> 
-  
-  <div class="slide">
-    <div class="text-container">
-      <h3>Vai Trò Của Hiệu</h3>
-      <ul>
-        <li>"Hiệu" là linh hồn của Bài Chòi, đóng vai trò quan trọng trong việc điều khiển trò chơi và giữ cho khán giả luôn hào hứng. Một "Hiệu" giỏi không chỉ cần có giọng hát hay mà còn phải có khả năng ngẫu hứng, hài hước và biết cách tương tác với khán giả.</li>
-        <li>"Hiệu" thường xuyên ngẫu hứng với sự hài hước và lôi cuốn khán giả, khiến cho trò chơi trở nên sống động và hấp dẫn hơn.
-        </li>
-      </ul>
-    </div>
-    <img src="https://danviet.mediacdn.vn/upload/1-2015/images/2015-01-13/1434354161-tqrzbaichoi3_hcuo.jpg" alt="Image 4" style="width: 580px; height: 480px;">
-  </div>
-  <div class="slide">
-    <div class="text-container">
-      <h3>Cách Ca Bài Chòi</h3>
-      <ul>
-        <li>Ca Bài Chòi là một phần quan trọng của trò chơi, kết hợp giữa hát và kể chuyện..</li>
-        <li> "Hiệu" sẽ sử dụng các giai điệu truyền thống như Xuân Nữ, Xàng Xê, Cổ Bản và Hồ Quảng để hát các câu thơ hoặc bài hát.
-        </li>
-        <li>Ca Bài Chòi không chỉ đòi hỏi người hát phải có giọng hát hay mà còn phải biết cách biểu diễn, kể chuyện sao cho hấp dẫn và thu hút khán giả. Việc kết hợp giữa âm nhạc, thơ ca và diễn xuất đã tạo nên nét đặc sắc riêng của Ca Bài Chòi.</li>
-      </ul>
-    </div>
-    <img src="https://toquoc.mediacdn.vn/upload/oldcinetvn/userfiles/image/2013/hat_bai_choi0.jpg" alt="Image 2">
-    <img src="https://toquoc.mediacdn.vn/upload/oldcinetvn/userfiles/image/2013/h%C3%B4%20hi%C3%AAu.jpg" alt="image 3">
-  </div>
-
-    <div class="slide">
-    <div class="text-container">
-      <h1>Tóm Lại</h1>
-      <ul>
-        <li1>Bài Chòi vẫn là một phần sống động và không thể thiếu của di sản văn hóa Việt Nam.</li1>
-        <li1>Cần có những nỗ lực liên tục để bảo tồn tính xác thực của nó trong khi thích ứng với cảnh quan văn hóa đương
-          đại.
-        </li1>
-        <li1>Các biện pháp bảo tồn bao gồm giáo dục cộng đồng, tổ chức</li1>
-      </ul>
-    </div>
-  </div>
- <div class="slide">
-   <div class="thankYou">
-       <h1>Thank For Watching!</h1>
-       <p>Biên Tập: Phan Văn Thành Đạt</p>
-       <p>Hình Ảnh: Nguyễn Hoàng Xuân Phúc</p>
-       <p>Nội Dung: Thái Thị Thảo Vi</p>
-       <p>Thuyết Trình: Nguyễn Văn Thành</p>
-       <p>Ý Tưởng: Huỳnh Thị Nhật Vi</p>
-   </div>
-  </div>
-  
-  <div class="slide">
-    <iframe width="1920" height="1080" src="" title="YouTube video player" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
-  </div>
-  
- 
-
-  <script>
-    var slideIndex = 0;
-    var viewedPreLastSlide = false; // Biến để kiểm tra xem slide gần cuối đã được xem chưa
-
-    showSlide();
-
-    function showSlide() {
-      var slides = document.getElementsByClassName("slide");
-      for (var i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {
-        slideIndex = 1;
-      }
-      slides[slideIndex - 1].classList.add("active");
-
-      // Kiểm tra xem có phải slide gần cuối hay không
-      if (slideIndex === slides.length - 1) {
-        viewedPreLastSlide = true;
-      }
-
-      // Kiểm tra xem có phải slide cuối cùng hay không
-      if (slideIndex === slides.length && viewedPreLastSlide) {
-        var youtubeIframe = document.querySelector('iframe');
-        youtubeIframe.src = "https://www.youtube.com/embed/QAxr8AfZELo"; // Thay thế bằng URL video YouTube của bạn
-
-        youtubeIframe.addEventListener('play', function () {
-          if (youtubeIframe.requestFullscreen) {
-            youtubeIframe.requestFullscreen();
-          } else if (youtubeIframe.webkitRequestFullscreen) {
-            youtubeIframe.webkitRequestFullscreen();
-          } else if (youtubeIframe.msRequestFullscreen) {
-            youtubeIframe.msRequestFullscreen();
-          }
-        });
-        youtubeIframe.addEventListener('ended', function() {
-      // Ẩn iframe YouTube
-          youtubeIframe.style.display = "none"; 
-
-      // Hiển thị nội dung "Thank You"
-          document.getElementsByClassName("thankYou").style.display = "flex"; 
-        });
-      }
-    }
-
-    function nextSlide() {
-      showSlide();
-    }
-
-    function prevSlide() {
-      var slides = document.getElementsByClassName("slide");
-      for (var i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
-      }
-      slideIndex--;
-      if (slideIndex < 1) {
-        slideIndex = slides.length;
-      }
-      slides[slideIndex - 1].classList.add("active");
-    }
-
-    document.addEventListener('mousedown', function (event) {
-      if (event.button === 0) {
-        nextSlide();
-      } else if (event.button === 2) {
-        prevSlide();
-      }
-    });
-    
-    
-    document.addEventListener('wheel', function(event) {
-      if (event.deltaY < 0) {  // Cuộn con lăn lên để quay lại trang trước
-        prevSlide();
-      } else if (event.deltaY > 0) { // Cuộn con lăn lên để tới trang tiếp
-        nextSlide();
-      }
-    });
-
-// ... (Các hàm JavaScript khác) ...
-
-// Lắng nghe sự kiện 'click' trên toàn bộ trang web
-document.addEventListener('click', function() {
-  if (document.documentElement.requestFullscreen) {
-    document.documentElement.requestFullscreen();
-  } else if (document.documentElement.webkitRequestFullscreen) { /* Safari */
-    document.documentElement.webkitRequestFullscreen();
-  } else if (document.documentElement.msRequestFullscreen) { /* IE11 */
-    document.documentElement.msRequestFullscreen();
-  }
-});
-  
-  
-    // Hàm để ẩn thanh địa chỉ
-function hideAddressBar() {
-  if (document.documentElement.requestFullscreen) {
-    document.documentElement.requestFullscreen();
-  } else if (document.documentElement.webkitRequestFullscreen)   
- { /* Safari */
-    document.documentElement.webkitRequestFullscreen();
-  } else if (document.documentElement.msRequestFullscreen) { /* IE11 */
-    document.documentElement.msRequestFullscreen();   
-
-  }
-}
-// Gọi hàm hideAddressBar() khi trang web được tải
-window.addEventListener("load", hideAddressBar);
-   </script>
-  </body>
 </html>
