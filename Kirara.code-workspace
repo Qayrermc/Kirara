@@ -1,0 +1,32 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../../Storage/vscode/web3/main/contact"
+		},
+		{
+			"path": "../../../../../Storage/vscode/web3/main/Gallery"
+		},
+		{
+			"path": "../../../../../Storage/vscode/web3/main/Games"
+		},
+		{
+			"path": "../../../../../Storage/vscode/web3/main/kirara"
+		},
+		{
+			"path": "../../../../../Storage/vscode/web3/main/src"
+		},
+		{
+			"path": "../../../../../Storage/vscode/web3/main/Ticket"
+		},
+		{
+			"path": "../../../../../Storage/vscode/web3/main/about"
+		},
+		{
+			"path": "../../../../../Storage/vscode/web3/main/AIchat"
+		}
+	],
+	"settings": {}
+}
